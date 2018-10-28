@@ -25,55 +25,15 @@ const styles = theme => ({
   },
 });
 
-function AppNav(props) {
+function DriveNav(props) {
   const { classes } = props;
-  const { application, current } = props;
-
-  function needDivider(module, nextModule) {
-    if (module && module.group
-        && nextModule && nextModule.group) {
-      return module.group !== nextModule.group;
-    }
-  }
-
-  function renderIcon(icon) {
-    switch(icon) {
-      case 'Dashboard':
-        return <Dashboard/>;
-      case 'Assignment':
-        return <Assignment/>;
-      case 'LibraryBooks':
-        return <LibraryBooks/>;
-      case 'Storage':
-        return <Storage/>;
-      case 'LocalLibrary':
-        return <LocalLibrary/>;
-      case 'Public':
-        return <Public/>;
-      case 'Pages':
-        return <Pages/>;
-      case 'Alarm':
-        return <AlarmIcon/>;
-      case 'DevicesOther':
-        return <DevicesOther/>;
-      case 'Group':
-        return <Group/>;
-      case 'Person':
-        return <Person/>;
-      default:
-        return;
-    }
-  }
+  const { current } = props;
 
   return (
     <React.Fragment>
       <List>
-        {application.modules.map((module, index, array) => (
           <ListItem button
             key={module.url}
-            divider={needDivider(
-              module, array[index + 1]
-            )}
             className={
               (module.label === current)
                 ? classes.selected : ''
@@ -104,7 +64,6 @@ function AppNav(props) {
   );
 }
 
-export default onlyUpdateForKeys(
-  ['modules', 'current'])(
-    withStyles(styles)(AppNav)
+export default onlyUpdateForKeys(['current'])(
+    withStyles(styles)(DriveNav)
 );

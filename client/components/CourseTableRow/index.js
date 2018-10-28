@@ -14,7 +14,8 @@ const styles = theme => ({
 
 function CourseTableRow(props) {
   const { classes } = props;
-  const { onClick, course } = props;
+  const { onClick } = props;
+  const { course } = props;
 
   return (
     <React.Fragment>

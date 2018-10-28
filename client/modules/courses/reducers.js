@@ -1,17 +1,29 @@
 export const courses = (state = [], action) => {
   switch (action.type) {
+    case 'LOADED_COURSES':
+      return {
+        ...state,
+        items: action.items
+      };
     case 'SELECT_COURSES':
-      const numSelected = state.filter(t => t.selected).length;
-      return state.map(t => {
-        return {
-          ...t,
-          selected: (numSelected !== state.length)
-        };
-      });
+      const numTotal = state.items.length;
+      const numSelected = state.items.filter(t => t.selected).length;
+      return {
+        ...state,
+        items: state.items.map(t => {
+          return {
+            ...t,
+            selected: (numSelected !== numTotal)
+          };
+        })
+      };
     case 'SELECT_COURSE':
-      return state.map(t => {
-        return course(t, action);
-      });
+      return {
+        ...state,
+        items: state.items.map(t => {
+          return course(t, action);
+        })
+      };
     default:
       return state;
   }

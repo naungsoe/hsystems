@@ -27,11 +27,11 @@ const styles = theme => ({
 
 function CourseList(props) {
   const { classes } = props;
-  const { courses } = props;
   const { onAllRowsSelect, onRowSelect } = props;
+  const { courses } = props;
 
   function onCreate() {
-    locationn
+
   }
 
   return (
@@ -66,7 +66,7 @@ function CourseList(props) {
           </Grid>
         </Grid>
       </Toolbar>
-      <CourseTable courses={courses}
+      <CourseTable courses={courses.items}
         onSelectAllClick={onAllRowsSelect}
         onRowClick={onRowSelect}
       />
@@ -82,7 +82,7 @@ function CourseList(props) {
 }
 
 const mapStateToProps = state => ({
-  courses: [...state.courses]
+  courses: state.courses
 });
 
 const mapDispatchToProps = dispatch => ({

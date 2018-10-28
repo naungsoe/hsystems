@@ -15,8 +15,8 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
-import Notifications from '@material-ui/icons/Notifications';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const styles = theme => ({
   popper: {
@@ -70,7 +70,7 @@ function NotificationMenu(props) {
               <Badge color="secondary"
                 badgeContent={3}
               >
-                <Notifications/>
+                <NotificationsIcon/>
               </Badge>
             </IconButton>
             <Popper disablePortal
@@ -107,7 +107,7 @@ function NotificationMenu(props) {
                             key={notification.id}
                           >
                             <Avatar>
-                              <AccountCircle/>
+                              <AccountCircleIcon/>
                             </Avatar>
                             <ListItemText
                               disableTypography

@@ -13,7 +13,7 @@ import Popper from '@material-ui/core/Popper';
 import MenuList from '@material-ui/core/MenuList';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const styles = theme => ({
   popper: {
@@ -38,7 +38,8 @@ const WithState = toRenderProps(
 
 function AccountMenu(props) {
   const { classes } = props;
-  const { user } = props;
+  const { application } = props;
+  const { user } = application;
 
   return (
     <WithState>
@@ -59,7 +60,7 @@ function AccountMenu(props) {
             <IconButton color="inherit"
               onClick={handleClick}
             >
-               <AccountCircle/>
+               <AccountCircleIcon/>
             </IconButton>
             <Popper disablePortal
               placement="bottom-end"
@@ -115,6 +116,6 @@ function AccountMenu(props) {
   );
 }
 
-export default onlyUpdateForKeys(['user'])(
+export default onlyUpdateForKeys(['application'])(
   withStyles(styles)(AccountMenu)
 );

@@ -1,4 +1,5 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import * as commonReducers from '../common/reducers';
 import * as courseReducers from './reducers';
 
@@ -18,7 +19,10 @@ const storeFactory = (state) => {
   return createStore(
     reducers,
     state,
-    applyMiddleware(logger)
+    applyMiddleware(
+      logger,
+      thunk
+    )
   );
 };
 

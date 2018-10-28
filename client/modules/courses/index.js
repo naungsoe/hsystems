@@ -10,6 +10,7 @@ import AppHeader from '../../components/AppHeader';
 import AppNavDrawer from '../../components/AppNavDrawer';
 import AppNav from '../../components/AppNav';
 import AppContent from '../../components/AppContent';
+import AppMenu from '../../components/AppMenu';
 import NotificationMenu from '../../components/NotificationMenu';
 import AccountMenu from '../../components/AccountMenu';
 import CourseList from '../../containers/CourseList';
@@ -25,12 +26,13 @@ const styles = theme => ({
 function Courses(props) {
   const { classes, width } = props;
   const { onMenuToggle } = props;
-  const module = props.modules.filter(
+  const { application } = props;
+  const module = application.modules.filter(
     module => (module.label === 'Courses'))[0];
   const fullWidth = isWidthUp('md', props.width)
-    ? !props.menu.open : true;
+    ? !application.drawer.open : true;
   const open = isWidthUp('md', props.width)
-    ? props.menu.open : !props.menu.open;
+    ? application.drawer.open : !application.drawer.open;
   const variant = isWidthUp('md', props.width)
     ? 'persistent' : 'temporary';
 
@@ -40,6 +42,9 @@ function Courses(props) {
       <AppHeader {...props}
         onMenuClick={onMenuToggle}
       >
+        <AppMenu {...props}
+          current={module.label}
+        />
         <NotificationMenu {...props}/>
         <AccountMenu {...props}/>
       </AppHeader>
@@ -48,9 +53,8 @@ function Courses(props) {
         variant={variant}
         onClose={onMenuToggle}
       >
-        <AppNav
+        <AppNav {...props}
           current={module.label}
-          {...props}
         />
       </AppNavDrawer>
       <AppContent {...props}
@@ -63,13 +67,14 @@ function Courses(props) {
 }
 
 const mapStateToProps = state => ({
-  ...state
+  application: state.application,
+  notifications: state.notifications
 });
 
 const mapDispatchToProps = dispatch => ({
   onMenuToggle() {
     dispatch({
-      type: 'TOGGLE_MENU'
+      type: 'TOGGLE_DRAWER'
     });
   }
 });

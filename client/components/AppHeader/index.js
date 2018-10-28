@@ -23,7 +23,9 @@ const styles = theme => ({
 
 function AppHeader(props) {
   const { classes, children } = props;
-  const { onMenuClick, organization} = props;
+  const { onMenuClick } = props;
+  const { application } = props;
+  const { organization } = application.user;
 
   return (
     <React.Fragment>

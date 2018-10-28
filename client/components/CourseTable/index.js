@@ -7,6 +7,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableBody from '@material-ui/core/TableBody';
 import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
+import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import CourseTableRow from '../CourseTableRow';
 
@@ -21,8 +22,8 @@ const styles = theme => ({
 
 function CourseTable(props) {
   const { classes } = props;
-  const { courses } = props;
   const { onSelectAllClick, onRowClick } = props;
+  const { courses } = props;
   const rowCount = courses.length;
   const numSelected = courses.filter(t => t.selected).length;
 
@@ -42,8 +43,14 @@ function CourseTable(props) {
                 onChange={onSelectAllClick}
               />
             </TableCell>
-            <TableCell>
-              Title
+            <TableCell
+              sortDirection="desc"
+            >
+              <TableSortLabel active={true}
+                direction="desc"
+              >
+                Title
+              </TableSortLabel>
             </TableCell>
             <TableCell>
               Start date
