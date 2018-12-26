@@ -40,7 +40,7 @@ function AppHeader(props) {
             <MenuIcon/>
           </IconButton>
           <Typography color="inherit"
-            variant="title"
+            variant="h6"
             className={classes.organization}
           >
             {organization.name}

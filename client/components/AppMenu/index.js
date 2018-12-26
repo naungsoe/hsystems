@@ -50,7 +50,7 @@ const WithState = toRenderProps(
 function AppMenu(props) {
   const { classes } = props;
   const { application } = props;
-  const { modules, current } = application;
+  const { modules } = application;
 
   function needDivider(module, nextModule) {
     if (module && module.group
@@ -128,24 +128,15 @@ function AppMenu(props) {
                         divider={needDivider(
                           module, array[index + 1]
                         )}
-                        className={
-                          (module.label === current)
-                            ? classes.selected : ''
-                        }
                       >
-                        <ListItemIcon
-                          className={
-                            (module.label === current)
-                              ? classes.selected : ''
-                          }
-                        >
+                        <ListItemIcon>
                           {renderIcon(module.icon)}
                         </ListItemIcon>
                         <ListItemText
                           disableTypography
                           primary={
                             <Typography color="inherit"
-                              variant="subheading"
+                              variant="subtitle1"
                             >
                               {module.label}
                             </Typography>

@@ -7,12 +7,13 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import AppHeader from '../../components/AppHeader';
-import AppNavDrawer from '../../components/AppNavDrawer';
-import AppNav from '../../components/AppNav';
-import AppContent from '../../components/AppContent';
 import AppMenu from '../../components/AppMenu';
 import NotificationMenu from '../../components/NotificationMenu';
 import AccountMenu from '../../components/AccountMenu';
+import NavDrawer from '../../components/NavDrawer';
+import Toolbar from '@material-ui/core/Toolbar';
+import DriveNav from '../../components/DriveNav';
+import AppContent from '../../components/AppContent';
 import CourseList from '../../containers/CourseList';
 import state from './state';
 import storeFactory from './store';
@@ -42,21 +43,20 @@ function Courses(props) {
       <AppHeader {...props}
         onMenuClick={onMenuToggle}
       >
-        <AppMenu {...props}
-          current={module.label}
-        />
+        <AppMenu {...props}/>
         <NotificationMenu {...props}/>
         <AccountMenu {...props}/>
       </AppHeader>
-      <AppNavDrawer {...props}
+      <NavDrawer {...props}
         open={open}
         variant={variant}
         onClose={onMenuToggle}
       >
-        <AppNav {...props}
+        <Toolbar/>
+        <DriveNav {...props}
           current={module.label}
         />
-      </AppNavDrawer>
+      </NavDrawer>
       <AppContent {...props}
         fullWidth={fullWidth}
       >

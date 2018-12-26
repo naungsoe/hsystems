@@ -80,14 +80,14 @@ function AccountMenu(props) {
                     >
                       <Typography noWrap
                         component="div"
-                        variant="subheading"
+                        variant="subtitle1"
                         className={classes.name}
                       >
                         {user.name}
                       </Typography>
                       <Typography noWrap
                         component="div"
-                        variant="subheading"
+                        variant="subtitle1"
                       >
                         {user.email}
                       </Typography>

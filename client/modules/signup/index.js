@@ -38,7 +38,7 @@ function SignUp(props) {
             <Grid container spacing={24}>
               <Grid item container spacing={24}>
                 <Grid item>
-                  <Typography variant="title">
+                  <Typography variant="h6">
                     Create account
                   </Typography>
                 </Grid>

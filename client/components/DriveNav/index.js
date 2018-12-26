@@ -7,17 +7,10 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Dashboard from '@material-ui/icons/Dashboard';
-import Assignment from '@material-ui/icons/Assignment';
-import LibraryBooks from '@material-ui/icons/LibraryBooks';
-import Storage from '@material-ui/icons/Storage';
-import LocalLibrary from '@material-ui/icons/LocalLibrary';
-import Pages from '@material-ui/icons/Pages';
-import Public from '@material-ui/icons/Public';
-import AlarmIcon from '@material-ui/icons/Alarm';
-import DevicesOther from '@material-ui/icons/DevicesOther';
-import Group from '@material-ui/icons/Group';
-import Person from '@material-ui/icons/Person';
+import ComputerIcon from '@material-ui/icons/Computer';
+import PeopleIcon from '@material-ui/icons/People';
+import ScheduleIcon from '@material-ui/icons/Schedule';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const styles = theme => ({
   selected: {
@@ -32,33 +25,66 @@ function DriveNav(props) {
   return (
     <React.Fragment>
       <List>
-          <ListItem button
-            key={module.url}
-            className={
-              (module.label === current)
-                ? classes.selected : ''
+        <ListItem button>
+          <ListItemIcon>
+            <ComputerIcon/>
+          </ListItemIcon>
+          <ListItemText
+            disableTypography
+            primary={
+              <Typography color="inherit"
+                variant="subtitle1"
+              >
+                My Drive
+              </Typography>
             }
-          >
-            <ListItemIcon
-              className={
-                (module.label === current)
-                  ? classes.selected : ''
-              }
-            >
-              {renderIcon(module.icon)}
-            </ListItemIcon>
-            <ListItemText
-              disableTypography
-              primary={
-                <Typography color="inherit"
-                  variant="subheading"
-                >
-                  {module.label}
-                </Typography>
-              }
-            />
-          </ListItem>
-        ))}
+          />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <PeopleIcon/>
+          </ListItemIcon>
+          <ListItemText
+            disableTypography
+            primary={
+              <Typography color="inherit"
+                variant="subtitle1"
+              >
+                Shared with me
+              </Typography>
+            }
+          />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <ScheduleIcon/>
+          </ListItemIcon>
+          <ListItemText
+            disableTypography
+            primary={
+              <Typography color="inherit"
+                variant="subtitle1"
+              >
+                Recent
+              </Typography>
+            }
+          />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <DeleteIcon/>
+          </ListItemIcon>
+          <ListItemText
+            disableTypography
+            primary={
+              <Typography color="inherit"
+                variant="subtitle1"
+              >
+                Trash
+              </Typography>
+            }
+          />
+        </ListItem>
       </List>
     </React.Fragment>
   );

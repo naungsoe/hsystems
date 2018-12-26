@@ -42,11 +42,6 @@ function CourseList(props) {
           alignItems="center"
           direction="row"
         >
-          <Grid item sm>
-            <Typography variant="title">
-              Courses
-            </Typography>
-          </Grid>
           <Grid item>
             <FormControl
               className={classes.control}
@@ -63,6 +58,21 @@ function CourseList(props) {
                 }
               />
             </FormControl>
+          </Grid>
+        </Grid>
+      </Toolbar>
+      <Toolbar>
+        <Grid item container
+          alignItems="center"
+          direction="row"
+        >
+          <Grid item sm>
+            <Typography variant="h6">
+              Courses
+            </Typography>
+          </Grid>
+          <Grid item>
+
           </Grid>
         </Grid>
       </Toolbar>

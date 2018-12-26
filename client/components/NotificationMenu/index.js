@@ -91,7 +91,7 @@ function NotificationMenu(props) {
                     >
                       <Typography align="center"
                         color="textSecondary"
-                        variant="subheading"
+                        variant="subtitle1"
                         className={classes.title}
                       >
                         Notifications

@@ -29,13 +29,6 @@ function AppNav(props) {
   const { classes } = props;
   const { application, current } = props;
 
-  function needDivider(module, nextModule) {
-    if (module && module.group
-        && nextModule && nextModule.group) {
-      return module.group !== nextModule.group;
-    }
-  }
-
   function renderIcon(icon) {
     switch(icon) {
       case 'Dashboard':
@@ -71,9 +64,6 @@ function AppNav(props) {
         {application.modules.map((module, index, array) => (
           <ListItem button
             key={module.url}
-            divider={needDivider(
-              module, array[index + 1]
-            )}
             className={
               (module.label === current)
                 ? classes.selected : ''
@@ -91,7 +81,7 @@ function AppNav(props) {
               disableTypography
               primary={
                 <Typography color="inherit"
-                  variant="subheading"
+                  variant="subtitle1"
                 >
                   {module.label}
                 </Typography>

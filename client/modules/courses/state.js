@@ -116,6 +116,28 @@ const state = {
   ],
   courses: {
     loaded: false,
+    navigation: [
+      {
+        url: '/drive/my-drive',
+        icon: 'Storage',
+        label: 'My Drive'
+      },
+      {
+        url: '/drive/shared-with-me',
+        icon: 'People',
+        label: 'Shared with me'
+      },
+      {
+        url: '/drive/recent',
+        icon: 'People',
+        label: 'Recent'
+      },
+      {
+        url: '/drive/trash',
+        icon: 'Delete',
+        label: 'Trash'
+      }
+    ],
     query: {
       search: '',
       sort: {

@@ -32,7 +32,7 @@ function CourseCard(props) {
         />
         <CardContent>
           <Typography gutterBottom
-            variant="subheading"
+            variant="subtitle1"
           >
             {course.title}
           </Typography>
